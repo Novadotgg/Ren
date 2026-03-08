@@ -482,70 +482,41 @@ const SharedSky = () => (
 );
 
 const BirthdayWish = () => (
-  <div className="flex flex-col lg:flex-row items-start justify-center gap-6 px-2 sm:px-4 py-4 w-full max-w-7xl mx-auto">
-    {/* Left Side - Personal Note */}
+  <div className="flex flex-col items-center gap-6 px-2 sm:px-4 py-4 w-full max-w-7xl mx-auto flex-1">
     <motion.div
-      className="w-full lg:w-96 flex-shrink-0"
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
+      className="w-32 h-32 rounded-full bg-gradient-to-br from-pink-400 to-orange-400 animate-pulseGlow flex items-center justify-center text-6xl"
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      style={{ boxShadow: '0 0 30px 15px rgba(255,105,180,0.6)' }}
     >
-      <div className="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-lg shadow-2xl p-4 border-4 border-yellow-200 sticky top-4">
-        <div className="bg-white/80 rounded p-3 mb-3">
-          <div className="flex items-center gap-2 pb-2 border-b-2 border-yellow-300">
-            <span className="text-2xl">📝</span>
-          </div>
-        </div>
+      🎂
+    </motion.div>
 
-        <div className="bg-white/90 rounded p-4 text-sm leading-relaxed text-gray-800 max-h-[70vh] overflow-y-auto">
-          <div style={{ height: '50px' }} />
-        </div>
+    <Avatar url={shuffledPhotos[5]} name={""} />
 
-        <div className="mt-3 flex justify-center gap-2">
-          <span className="text-xl animate-float">💪</span>
-          <span className="text-xl animate-float" style={{ animationDelay: '0.2s' }}>✨</span>
-          <span className="text-xl animate-float" style={{ animationDelay: '0.4s' }}>🌟</span>
-        </div>
+    <motion.div
+      className="text-center space-y-4 max-w-2xl"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5 }}
+    >
+      <div className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed">
+        <div style={{ height: '50px' }} />
       </div>
     </motion.div>
 
-    {/* Right Side - Birthday Wishes */}
-    <div className="flex flex-col items-center gap-6 flex-1">
-      <motion.div
-        className="w-32 h-32 rounded-full bg-gradient-to-br from-pink-400 to-orange-400 animate-pulseGlow flex items-center justify-center text-6xl"
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        style={{ boxShadow: '0 0 30px 15px rgba(255,105,180,0.6)' }}
-      >
-        🎂
-      </motion.div>
-
-      <Avatar url={shuffledPhotos[5]} name={""} />
-
-      <motion.div
-        className="text-center space-y-4 max-w-2xl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <div className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed">
-          <div style={{ height: '50px' }} />
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="flex gap-3 text-4xl mt-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-      >
-        <span className="animate-float">🎈</span>
-        <span className="animate-float" style={{ animationDelay: '0.2s' }}>🎁</span>
-        <span className="animate-float" style={{ animationDelay: '0.4s' }}>🌺</span>
-        <span className="animate-float" style={{ animationDelay: '0.6s' }}>✨</span>
-      </motion.div>
-    </div>
+    <motion.div
+      className="flex gap-3 text-4xl mt-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.8 }}
+    >
+      <span className="animate-float">🎈</span>
+      <span className="animate-float" style={{ animationDelay: '0.2s' }}>🎁</span>
+      <span className="animate-float" style={{ animationDelay: '0.4s' }}>🌺</span>
+      <span className="animate-float" style={{ animationDelay: '0.6s' }}>✨</span>
+    </motion.div>
   </div>
 );
 

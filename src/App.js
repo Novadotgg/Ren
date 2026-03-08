@@ -351,8 +351,27 @@ const MusicPlayer = ({ src, playing }) => {
 Individual scenes (each memory as its own component)
 *************************************************/
 const Intro = () => (
-  <div className="flex flex-col items-center gap-4">
-    <motion.div className="flex items-center gap-6 mt-4" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
+  <div className="flex flex-col items-center justify-center gap-4 py-8">
+    <motion.div
+      initial={{ y: -30, opacity: 0, scale: 0.9 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      className="text-center z-10 w-full flex flex-col items-center"
+    >
+      <h1 className="font-dancing text-6xl sm:text-7xl md:text-[6rem] lg:text-[7rem] text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-white to-pink-200 drop-shadow-[0_0_20px_rgba(236,72,153,0.8)] leading-tight py-2">
+        Happy Birthday
+      </h1>
+      <p className="font-outfit text-2xl sm:text-3xl md:text-4xl text-pink-50 tracking-[0.3em] uppercase font-light mt-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+        {NAMES.her}
+      </p>
+    </motion.div>
+
+    <motion.div
+      className="flex items-center gap-6 mt-2"
+      initial={{ scale: 0.95, opacity: 0, y: 20 }}
+      animate={{ scale: 1, opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+    >
       <Avatar url={PHOTO_INTRO} name={""} />
     </motion.div>
   </div>
@@ -454,63 +473,7 @@ const Achievements = () => (
   </div>
 );
 
-const LoveLetters = () => (
-  <div className="flex flex-col items-center gap-6 px-2 py-8 w-full max-w-7xl mx-auto">
-    <div className="flex flex-col lg:flex-row gap-6 w-full items-center justify-center">
-      {/* First Letter */}
-      <motion.div
-        className="relative w-full max-w-md"
-        initial={{ opacity: 0, rotate: -5, x: -50 }}
-        animate={{ opacity: 1, rotate: -3, x: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="bg-gradient-to-br from-pink-50 to-rose-100 rounded-lg shadow-2xl p-6 transform hover:rotate-0 transition-transform duration-300 border-4 border-pink-200">
-          <div className="bg-white/80 rounded p-4 mb-3">
-            <div className="flex items-center gap-2 mb-2 pb-2 border-b-2 border-pink-300">
-              <span className="text-2xl">✉️</span>
-            </div>
-          </div>
 
-          <div className="bg-white/90 rounded p-4 text-sm leading-relaxed text-gray-800 max-h-96 overflow-y-auto">
-            <div style={{ height: '50px' }} />
-          </div>
-
-          <div className="mt-3 flex justify-center gap-2">
-            <span className="text-2xl animate-float">💕</span>
-            <span className="text-2xl animate-float" style={{ animationDelay: '0.2s' }}>💝</span>
-            <span className="text-2xl animate-float" style={{ animationDelay: '0.4s' }}>💖</span>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Second Letter */}
-      <motion.div
-        className="relative w-full max-w-md"
-        initial={{ opacity: 0, rotate: 5, x: 50 }}
-        animate={{ opacity: 1, rotate: 3, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="bg-gradient-to-br from-purple-50 to-indigo-100 rounded-lg shadow-2xl p-6 transform hover:rotate-0 transition-transform duration-300 border-4 border-purple-200">
-          <div className="bg-white/80 rounded p-4 mb-3">
-            <div className="flex items-center gap-2 mb-2 pb-2 border-b-2 border-purple-300">
-              <span className="text-2xl">💌</span>
-            </div>
-          </div>
-
-          <div className="bg-white/90 rounded p-4 text-sm leading-relaxed text-gray-800 max-h-96 overflow-y-auto">
-            <div style={{ height: '50px' }} />
-          </div>
-
-          <div className="mt-3 flex justify-center gap-2">
-            <span className="text-2xl animate-float">💜</span>
-            <span className="text-2xl animate-float" style={{ animationDelay: '0.2s' }}>✨</span>
-            <span className="text-2xl animate-float" style={{ animationDelay: '0.4s' }}>🌟</span>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  </div>
-);
 
 const SharedSky = () => (
   <div className="flex flex-col items-center gap-6">
@@ -606,7 +569,7 @@ const SCENES = [
   { key: 'bday', component: BirthdayMonth, mode: 'day', duration: 4 },
   { key: 'prefs', component: Preferences, mode: 'day', duration: 6 },
   { key: 'achievements', component: Achievements, mode: 'day', duration: 6 },
-  { key: 'letters', component: LoveLetters, mode: 'sunset', duration: 8 },
+
   { key: 'arg', component: ArgumentsAndReturn, mode: 'night', duration: 5 },
   { key: 'sky', component: SharedSky, mode: 'night', duration: 6 },
   { key: 'birthday', component: BirthdayWish, mode: 'night', duration: 10 },

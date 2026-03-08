@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        dancing: ['"Dancing Script"', 'cursive'],
+        outfit: ['Outfit', 'sans-serif'],
+      },
       colors: {
         brand: {
           50: '#fdf2f8',

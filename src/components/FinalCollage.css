@@ -57,6 +57,7 @@
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
+  align-items: start;
 }
 
 @media (min-width: 640px) {
@@ -68,7 +69,6 @@
 }
 
 .photo-container {
-  aspect-ratio: 1;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -83,13 +83,13 @@
 
 .memory-photo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .memory-photo:hover {
-  transform: scale(1.08);
+  transform: scale(1.03);
 }
 
 .overlay {

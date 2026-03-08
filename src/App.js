@@ -8,7 +8,6 @@ import FinalCollage from './components/FinalCollage';
 Config: Edit these to personalize
 *************************************************/
 const NAMES = { me: 'Renesh', her: 'Renesh' };
-const MET_DATE = '5 June 2022';
 
 // Photo assignments
 const PHOTO_INTRO = '/12.jpeg';  // First page
@@ -18,10 +17,6 @@ const RANDOM_PHOTOS = ['/1.jpeg', '/2.jpeg', '/4.jpeg', '/5.jpeg', '/6.jpeg', '/
 // Shuffle random photos for other pages
 const shuffledPhotos = [...RANDOM_PHOTOS].sort(() => Math.random() - 0.5);
 
-const AVATARS = {
-  her: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Her&hair=long&hairColor=black&eyes=variant08',
-  me: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Me&hair=short02&hairColor=brown&eyes=variant06'
-};
 // Optional background music (put a music.mp3 in public/ and use '/music.mp3')
 const BACKGROUND_MUSIC = '/song.mp3';
 
@@ -636,8 +631,8 @@ function App() {
     return () => clearTimeout(t);
   }, [index, auto, duration]);
 
-  const goNext = () => setIndex((i) => (i + 1) % SCENES.length);
-  const goPrev = () => setIndex((i) => (i - 1 + SCENES.length) % SCENES.length);
+  const goNext = useCallback(() => setIndex((i) => (i + 1) % SCENES.length), []);
+  const goPrev = useCallback(() => setIndex((i) => (i - 1 + SCENES.length) % SCENES.length), []);
 
   const handleNextClick = useCallback((e) => {
     // Fire confetti from the button's position
